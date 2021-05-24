@@ -57,6 +57,7 @@ class BaseFactory : public Base {
 			else if(symbol=="/") { val1 = new Div(val1, val2); }
 			else if(symbol=="+") { val1 = new Add(val1, val2); }
 			else if(symbol=="-") { val1 = new Sub(val1, val2); }
+			else { return nullptr; } //this shouldn't go off but just in case
 		}
 		return val1;
 	}
