@@ -28,7 +28,7 @@ class BaseFactory : public Base {
 		for(unsigned i = 2; i < length; i++) { //starts after term 1
 			if(prevOperand && !isdigit(*input[i]) { //current is operator prev is operand
 				//check for valid operator
-				if(input[i] != "**" || input[i] != "*" || input[i] != "/" || input[i] != "+" || input[i] != "-") {
+				if(input[i] != "**" && input[i] != "*" && input[i] != "/" && input[i] != "+" && input[i] != "-") {
 					return nullptr; 
 				}
 				prevOperator = true;
