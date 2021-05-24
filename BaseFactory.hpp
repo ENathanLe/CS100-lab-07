@@ -1,6 +1,8 @@
 #ifndef __BASE_FACTORY_HPP__
 #define __BASE_FACTORY_HPP__
 
+#include <stdlib.h> 
+
 #include "base.hpp"
 #include "op.hpp"
 #include "pow.hpp"
