@@ -12,7 +12,7 @@
 class BaseFactory : public Base {
 	Base* parse(char** input, int length) 	{
 		//===========================================initial=screening==============================================
-		/* input ex: ./calculator, X, Y, Z 
+		/* input ex: ./calculator X Y Z 
 		 * length must be EVEN (ODD equation length + 1 (./calculator argument))
 		 * equation can't be empty or contain only a single operator/operand
 		 * should not begin or end with an operator
