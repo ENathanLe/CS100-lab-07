@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "base.hpp"
-#include "baseFactory.hpp"
+#include "BaseFactory.hpp"
 #include "op.hpp"
 #include "pow.hpp"
 #include "mult.hpp"
@@ -11,7 +11,7 @@
 #include "rand.hpp"
 
 int main(int argc, char** argv) {
-	Factory* expressionTree;
+	BaseFactory* expressionTree;
 	Base* evaluation = expressionTree->parse(argv, argc);
 
 	if(evaluation == nullptr) {
