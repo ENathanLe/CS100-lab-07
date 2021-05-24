@@ -23,10 +23,25 @@ class BaseFactory : public Base {
 		if(length % 2 == 1 || length < 4 || !isdigit(*input[i]) || !isdigit(*input[length-1])) { return nullptr; } 
 		
 		//check to see that there exist no consecutive operators/operands
-		for(unsigned i = 1; i < length-1; i++) {
-			if((isdigit(*input[i]) && isdigit(*input[i+1])) || (!isdigit(*input[i]) && !isdigit(*input[i+1]))) {
+		bool prevOperator = false;
+		bool prevOperand = true; //first precheck locks the first (and last) term to be an operand
+		for(unsigned i = 2; i < length; i++) { //starts after term 1
+			if(prevOperand && !isdigit(*input[i]) { //current is operator prev is operand
+				//check for valid operator
+				if(input[i] != "**" || input[i] != "*" || input[i] != "/" || input[i] != "+" || input[i] != "-") {
+					return nullptr; 
+				}
+				prevOperator = true;
+				prevOperand = false;	
+			}
+			else if(prevOperator && isdigit(*input[i])) { //current is operand prev is operator
+				prevOperator = false;
+				prevOperand = true;
+			}
+			else { //alternation failed
 				return nullptr;
 			}
+	
 		}
 		//==========================================================================================================
 	
@@ -42,7 +57,6 @@ class BaseFactory : public Base {
 			else if(symbol=="/") { val1 = new Div(val1, val2); }
 			else if(symbol=="+") { val1 = new Add(val1, val2); }
 			else if(symbol=="-") { val1 = new Sub(val1, val2); }
-			else { return nullptr; } //invalid operator 
 		}
 		return val1;
 	}
