@@ -3,6 +3,7 @@
 
 #include <stdlib.h> 
 #include <string>
+#include <iostream>
 
 #include "base.hpp"
 #include "op.hpp"
@@ -13,6 +14,7 @@
 #include "sub.hpp"
 
 class BaseFactory : public Base {
+   public:
 	Base* parse(char** input, int length) 	{
 		//===========================================initial=screening==============================================
 		/* input ex: ./calculator X Y Z 
@@ -20,15 +22,16 @@ class BaseFactory : public Base {
 		 * equation can't be empty or contain only a single operator/operand (at least length 4)
 		 * should not begin or end with an operator
 		 */		
-		if(length % 2 == 1 || length < 4 || !isdigit(*input[i]) || !isdigit(*input[length-1])) { return nullptr; } 
+		if(length % 2 == 1 || length < 4 || !isdigit(*input[1]) || !isdigit(*input[length-1])) { return nullptr; } 
 		
 		//check to see that there exist no consecutive operators/operands
 		bool prevOperator = false;
 		bool prevOperand = true; //first precheck locks the first (and last) term to be an operand
 		for(unsigned i = 2; i < length; i++) { //starts after term 1
-			if(prevOperand && !isdigit(*input[i]) { //current is operator prev is operand
+			if(prevOperand && !isdigit(*input[i])) { //current is operator prev is operand
 				//check for valid operator
-				if(input[i] != "**" && input[i] != "*" && input[i] != "/" && input[i] != "+" && input[i] != "-") {
+				std::string currentOp = input[i];
+				if(currentOp != "**" && currentOp != "*" && currentOp != "/" && currentOp != "+" && currentOp != "-") {
 					return nullptr; 
 				}
 				prevOperator = true;
@@ -39,17 +42,17 @@ class BaseFactory : public Base {
 				prevOperand = true;
 			}
 			else { //alternation failed
+				cout << "FLAG FOUR!" << endl;
 				return nullptr;
 			}
 	
 		}
 		//==========================================================================================================
-	
 		Base* val1 = new Op(atof(input[1])); //post screen this first digit has to be an operand
 		
 		for(unsigned i = 2; i < length; i+=2) { //look for pairs of operator + operand to calculate
-			string symbol = input[i]; //operator
-			Base* val2 = new Op(atof(input[i+1]); //operand
+			std::string symbol = input[i]; //operator
+			Base* val2 = new Op(atof(input[i+1])); //operand
 	
 			//operator idendification		
 			if(symbol=="**") { val1 = new Pow(val1, val2); }

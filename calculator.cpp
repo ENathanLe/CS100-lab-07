@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
 		cout << "Input Is Invalid." << endl;
 	}
 	else {
-		cout << evaluation->stringify() << "=" << evaluation->evaluate() << endl;
+		cout << evaluation->stringify() << " = " << evaluation->evaluate() << endl;
 	}
 	return 0;
 }
