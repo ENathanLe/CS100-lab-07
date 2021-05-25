@@ -42,7 +42,6 @@ class BaseFactory : public Base {
 				prevOperand = true;
 			}
 			else { //alternation failed
-				cout << "FLAG FOUR!" << endl;
 				return nullptr;
 			}
 	
