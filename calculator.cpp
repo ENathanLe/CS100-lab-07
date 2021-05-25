@@ -20,5 +20,6 @@ int main(int argc, char** argv) {
 	else {
 		cout << evaluation->stringify() << " = " << evaluation->evaluate() << endl;
 	}
+	delete evaluation;
 	return 0;
 }
