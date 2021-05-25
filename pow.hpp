@@ -11,7 +11,10 @@ class Pow : public Base {
 	double evaluate() {
 		return pow(operand1->evaluate(), operand2->evaluate());
 	}
-
+	~Pow() {
+	    delete operand1;
+	    delete operand2;
+	}
     private:
 	Base* operand1;
 	Base* operand2;

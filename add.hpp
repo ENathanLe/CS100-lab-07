@@ -14,7 +14,10 @@ class Add : public Base {
 			this->p1 = operand1;
 			this->p2 = operand2;
 		}
-		
+		~Add() {
+		    delete p1;
+		    delete p2;
+		}	
 		double evaluate() {return p1->evaluate() +  p2->evaluate();}
 
 		string stringify() {return "(" + p1->stringify() + " + " + p2->stringify() + ")";}
