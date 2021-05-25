@@ -20,5 +20,6 @@ int main() {
     Base* minus = new Sub(add, two);
 
     std::cout << minus->stringify() << " = " << minus->evaluate() << std::endl;
+    delete minus;
     return 0;
 }

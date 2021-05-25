@@ -16,8 +16,10 @@ class Div : public Base {
 			this->p2 = operand2;
 		}
 		~Div() {
-		    delete p1;
-		    delete p2;
+		    if(p1) delete p1;
+		    p1 = nullptr;
+		    if(p2) delete p2;
+		    p2 = nullptr;
 		}	
 		double evaluate() {return p1->evaluate() / p2->evaluate();}
 

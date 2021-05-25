@@ -16,6 +16,7 @@ TEST(ToothnnailTest, OddNegativeNumberMult) {
 	Base* mult1 = new Mult(val1, val2);
 	Base* mult2 = new Mult(mult1, val3);
 	EXPECT_EQ(mult2->evaluate(), -6);
+	delete mult2;
 }//multiplying an odd amount of negative numbers together 
 
 TEST(ToothnnailTest, AddMultDivSub) {
@@ -29,6 +30,7 @@ TEST(ToothnnailTest, AddMultDivSub) {
 	Base* add = new Add(val1, div);
 	Base* sub = new Sub(add, val5);
 	EXPECT_EQ(sub->evaluate(), -2);	
+	delete sub;
 }//2 + 3 * 5 / -5 - 1
 
 TEST(ToothnnailTest, AddMultDivSubString) {
@@ -42,6 +44,7 @@ TEST(ToothnnailTest, AddMultDivSubString) {
 	Base* add = new Add(val1, div);
 	Base* sub = new Sub(add, val5);
 	EXPECT_EQ(sub->stringify(), "((2 + ((3 * 5) / -5)) - 1)");	
+	delete sub;
 }//2 + 3 * 5 / -5 - 1
 
 #endif

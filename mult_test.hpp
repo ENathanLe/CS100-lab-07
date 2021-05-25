@@ -11,6 +11,7 @@ TEST(MultTest, MultTestRun) {
 	Base* testVal2 = new SixOpMock();
 	Mult* test = new Mult(testVal1, testVal2);
 	EXPECT_EQ(test->evaluate(), 48);
+	delete test;
 }//testing to see that multiply works in general
 
 TEST(MultTest, NegAndPos) {
@@ -18,6 +19,7 @@ TEST(MultTest, NegAndPos) {
 	Base* testVal2 = new NegThreeMock();
 	Mult* test = new Mult(testVal1, testVal2);
 	EXPECT_EQ(test->evaluate(), -24);	
+	delete test;
 }//testing to see a negative multiplied by a positive number
 
 TEST(MultTest, NegAndNeg) {
@@ -25,6 +27,7 @@ TEST(MultTest, NegAndNeg) {
 	Base* testVal2 = new NegThreeMock();
 	Mult* test = new Mult(testVal1, testVal2);
 	EXPECT_EQ(test->evaluate(), 15);
+	delete test;
 }//testing to see if negative number times a negative returns a positive number
 
 TEST(MultTest, ZeroOperand) {
@@ -32,6 +35,7 @@ TEST(MultTest, ZeroOperand) {
 	Base* testVal2 = new EightOpMock();
 	Mult* test = new Mult(testVal1, testVal2);
 	EXPECT_EQ(test->evaluate(), 0);
+	delete test;
 }//testing to see if zero as an operand returns zero as a product
 
 TEST(MultTest, StringMult) {
@@ -39,6 +43,7 @@ TEST(MultTest, StringMult) {
 	Base* testVal2 = new SixOpMock();
 	Mult* test = new Mult(testVal1, testVal2);
 	EXPECT_EQ(test->stringify(), "(8.0 * 6.0)");
+	delete test;
 }//testing the stringify of pos * pos
 
 TEST(MultTest, StringNegNeg) {
@@ -46,5 +51,6 @@ TEST(MultTest, StringNegNeg) {
 	Base* testVal2 = new NegThreeMock();
 	Mult* test = new Mult(testVal1, testVal2);
 	EXPECT_EQ(test->stringify(), "(-5.0 * -3.0)");
+	delete test;
 }//testing the stringify of neg * neg
 #endif

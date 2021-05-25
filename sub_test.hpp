@@ -11,6 +11,7 @@ TEST(SubTest, SubPosNeg) {
 	Base* test2 = new NegFiveMock();
 	Sub* test = new Sub(test1, test2);
 	EXPECT_EQ(test->evaluate(), 13.0);
+	delete test;
 }//subtracting a negative from a positive
 
 TEST(SubTest, SubNegPos) {
@@ -18,6 +19,7 @@ TEST(SubTest, SubNegPos) {
 	Base* test2 = new EightOpMock();
 	Sub* test = new Sub(test1, test2);
 	EXPECT_EQ(test->evaluate(), -13.0);
+	delete test;
 }//subtracting a positive from a negative
 
 TEST(SubTest, SubZero) {
@@ -25,6 +27,7 @@ TEST(SubTest, SubZero) {
 	Base* test2 = new ZeroOpMock();
 	Sub* test = new Sub(test1, test2);
 	EXPECT_EQ(test->evaluate(), 8.0);
+	delete test;
 }//subtracting zero from a number
 
 TEST(SubTest, StringifySubNeg) {
@@ -32,6 +35,7 @@ TEST(SubTest, StringifySubNeg) {
 	Base* test2 = new NegFiveMock();
 	Sub* test = new Sub(test1, test2);
 	EXPECT_EQ(test->stringify(), "(8.0 - -5.0)");
+	delete test;
 }//subtracting negative stringifyd
 
 TEST(SubTest, StringifySubPos) {
@@ -39,6 +43,7 @@ TEST(SubTest, StringifySubPos) {
 	Base* test2 = new EightOpMock();
 	Sub* test = new Sub(test1, test2);
 	EXPECT_EQ(test->stringify(), "(-5.0 - 8.0)");
+	delete test;
 }//subtracting positive stringifyd
 
 #endif

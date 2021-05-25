@@ -12,8 +12,10 @@ class Pow : public Base {
 		return pow(operand1->evaluate(), operand2->evaluate());
 	}
 	~Pow() {
-	    delete operand1;
-	    delete operand2;
+	    if(operand1) delete operand1;
+	    operand1 = nullptr;
+	    if(operand2) delete operand2;
+	    operand2 = nullptr;
 	}
     private:
 	Base* operand1;

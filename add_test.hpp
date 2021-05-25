@@ -11,6 +11,7 @@ TEST(AddTest, AddPosPos) {
 	Base* testVal2 = new SixOpMock();
 	Add* test = new Add(testVal1, testVal2);
 	EXPECT_EQ(test->evaluate(), 14.0);
+	delete test;
 }//adding two positive numbers
 
 TEST(AddTest, AddNegNeg) {
@@ -18,6 +19,7 @@ TEST(AddTest, AddNegNeg) {
 	Base* testVal2 = new NegThreeMock();
 	Add* test = new Add(testVal1, testVal2);
 	EXPECT_EQ(test->evaluate(), -8.0);
+	delete test;
 }//adding two negative numbers
 
 TEST(AddTest, AddPosNeg) {
@@ -25,6 +27,7 @@ TEST(AddTest, AddPosNeg) {
 	Base* testVal2 = new SixOpMock();
 	Add* test = new Add(testVal1, testVal2);
 	EXPECT_EQ(test->evaluate(), 1.0);
+	delete test;
 }//adding positive to negative (bigger positive number)
 
 TEST(AddTest, AddZeroZero) {
@@ -32,6 +35,7 @@ TEST(AddTest, AddZeroZero) {
 	Base* testVal2 = new ZeroOpMock();
 	Add* test = new Add(testVal1, testVal2);
 	EXPECT_EQ(test->evaluate(), 0.0);		
+	delete test;
 }//adding two zeros together
 
 TEST(AddTest, StringifyADd) {
@@ -39,6 +43,7 @@ TEST(AddTest, StringifyADd) {
 	Base* testVal2 = new EightOpMock();
 	Add* test = new Add(testVal1, testVal2);
 	EXPECT_EQ(test->stringify(), "(6.0 + 8.0)");
+	delete test;
 }//adding two pos and string version of this
 
 #endif

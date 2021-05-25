@@ -20,6 +20,7 @@ class Op : public Base {
 			truncStr = "0";
 		return truncStr;
 	}
+	~Op() = default;
     protected:
 	double value;
 };

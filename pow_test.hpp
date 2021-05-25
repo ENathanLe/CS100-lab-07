@@ -12,6 +12,7 @@ TEST(PowTest, PowEvaluateZero) {
     Base* val2 = new Op(3);
     Base* test = new Pow(val, val2);
     EXPECT_EQ(test->evaluate(), 0);
+    delete test;
 }
 
 TEST(PowTest, PowEvaluateNonZero) {
@@ -19,6 +20,7 @@ TEST(PowTest, PowEvaluateNonZero) {
     Base* val2 = new Op(2);
     Base* test = new Pow(val, val2);
     EXPECT_EQ(test->evaluate(), 12.3*12.3);
+    delete test;
 }
 
 TEST(PowTest, PowEvaluateNeg) {
@@ -26,6 +28,7 @@ TEST(PowTest, PowEvaluateNeg) {
     Base* val2 = new Op(2);
     Base* test = new Pow(val, val2);
     EXPECT_EQ(test->evaluate(), 25);
+    delete test;
 }
 
 TEST(PowTest, PowEvaluateAdd) {
@@ -35,6 +38,7 @@ TEST(PowTest, PowEvaluateAdd) {
     Base* add = new Add(val1, val2);
     Base* test = new Pow(add, val3);
     EXPECT_EQ(test->evaluate(), 49);
+    delete test;
 }
 
 TEST(PowTest, PowStringify) {
@@ -42,6 +46,7 @@ TEST(PowTest, PowStringify) {
     Base* val2 = new Op(-1);
     Base* test = new Pow(val, val2);
     EXPECT_EQ(test->stringify(), "(6 ** -1)");
+    delete test;
 }
 
 TEST(PowTest, PowStringifyMult) {
@@ -51,18 +56,21 @@ TEST(PowTest, PowStringifyMult) {
     Base* mult = new Mult(val1, val2);
     Base* test = new Pow(mult, val3);
     EXPECT_EQ(test->stringify(), "((6 * 2) ** 3)");
+    delete test;
 }
 
 TEST(PowTest, PowStringifyZero) {
     Base* val = new Op(0);
     Base* test = new Pow(val, val);
     EXPECT_EQ(test->stringify(), "(0 ** 0)");
+    //delete test;
 }
 
 TEST(PowTest, PowStringifyNeq) {
     Base* val = new Op(-2);
     Base* test = new Pow(val, val);
     EXPECT_EQ(test->stringify(), "(-2 ** -2)");
+    //delete test;
 }
 
 TEST(PowTest, PowEvalNeg) {
@@ -70,6 +78,7 @@ TEST(PowTest, PowEvalNeg) {
     Base* val2 = new Op(-1);
     Base* test = new Pow(val, val2);
     EXPECT_EQ(test->evaluate(), pow(0.26,-1));
+    delete test;
 }
 
 TEST(PowTest, PowEvalNegDec) {
@@ -77,6 +86,7 @@ TEST(PowTest, PowEvalNegDec) {
     Base* val2 = new Op(-1.4);
     Base* test = new Pow(val, val2);
     EXPECT_TRUE(isnan(test->evaluate()));
+    delete test;
 }
 
 TEST(PowTest, PowZeroNeg) {
@@ -84,6 +94,7 @@ TEST(PowTest, PowZeroNeg) {
     Base* val2 = new Op(-1);
     Base* test = new Pow(val, val2);
     EXPECT_TRUE(isinf(test->evaluate()));
+    delete test;
 }
 
 

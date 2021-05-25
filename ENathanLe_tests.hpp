@@ -14,6 +14,7 @@ TEST(ENathanLeTest, RandNegEval) {
 	Base* add = new Add(val, val);
 	Base* sub = new Sub(val, add);
 	EXPECT_EQ(sub->evaluate(), -83);
+	delete sub;
 }  //creates a random value and gets the negative of it, by x - (x + x)
 
 TEST(ENathanLeTest, SubAddMultEval) {
@@ -25,6 +26,7 @@ TEST(ENathanLeTest, SubAddMultEval) {
         Base* add = new Add(sub, val3);
         Base* mult = new Mult(add, val4);
         EXPECT_EQ(mult->evaluate(), 14);
+	delete mult;
 }
 
 TEST(ENathanLeTest, SubDivNegEval) {
@@ -34,6 +36,7 @@ TEST(ENathanLeTest, SubDivNegEval) {
         Base* sub = new Sub(val1, val2);
         Base* div = new Div(sub, val3);
         EXPECT_EQ(div->evaluate(), -1.25);
+	delete div;
 }
 
 TEST(ENathanLeTest, NegMultSubEval) {
@@ -43,6 +46,7 @@ TEST(ENathanLeTest, NegMultSubEval) {
         Base* mult = new Mult(val, val2);
         Base* sub = new Sub(mult, val3);
         EXPECT_EQ(sub->evaluate(), -34.7);
+	delete sub;
 }
 
 #endif
