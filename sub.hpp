@@ -15,10 +15,11 @@ class Sub : public Base {
 			this->p2 = operand2;
 		}
 		~Sub() {
-		    if(p1) delete p1;
-		    p1 = nullptr;
-		    if(p2) delete p2;
-		    p2 = nullptr;
+		    if(p1 == p2) delete p1;
+                    else{
+                        delete p1;
+                        delete p2;
+                    }
 		}	
 		double evaluate() {return p1->evaluate() - p2->evaluate();}
 

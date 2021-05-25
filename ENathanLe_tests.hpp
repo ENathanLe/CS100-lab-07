@@ -10,10 +10,12 @@
 
 TEST(ENathanLeTest, RandNegEval) {
 	srand(1);
-	Base* val = new Rand();
-	Base* add = new Add(val, val);
-	Base* sub = new Sub(val, add);
-	EXPECT_EQ(sub->evaluate(), -83);
+	Base* val1 = new Rand();
+	Base* val2 = new Rand();
+	Base* val3 = new Rand();
+	Base* add = new Add(val1, val2);
+	Base* sub = new Sub(val3, add);
+	EXPECT_EQ(sub->evaluate(), -92);
 	delete sub;
 }  //creates a random value and gets the negative of it, by x - (x + x)
 

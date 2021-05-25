@@ -63,14 +63,14 @@ TEST(PowTest, PowStringifyZero) {
     Base* val = new Op(0);
     Base* test = new Pow(val, val);
     EXPECT_EQ(test->stringify(), "(0 ** 0)");
-    //delete test;
+    delete test;
 }
 
 TEST(PowTest, PowStringifyNeq) {
     Base* val = new Op(-2);
     Base* test = new Pow(val, val);
     EXPECT_EQ(test->stringify(), "(-2 ** -2)");
-    //delete test;
+    delete test;
 }
 
 TEST(PowTest, PowEvalNeg) {

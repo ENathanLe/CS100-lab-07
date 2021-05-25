@@ -3,7 +3,7 @@
 
 #include "base.hpp"
 #include <math.h>
-
+#include <iostream>
 class Pow : public Base {
     public:
 	Pow(Base* op1, Base* op2) : Base(), operand1(op1), operand2(op2) {}
@@ -12,10 +12,11 @@ class Pow : public Base {
 		return pow(operand1->evaluate(), operand2->evaluate());
 	}
 	~Pow() {
-	    if(operand1) delete operand1;
-	    operand1 = nullptr;
-	    if(operand2) delete operand2;
-	    operand2 = nullptr;
+	    if(operand1 == operand2) delete operand1;
+	    else{
+		delete operand1;
+		delete operand2;
+	    }
 	}
     private:
 	Base* operand1;
